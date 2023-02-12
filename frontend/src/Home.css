@@ -1,0 +1,87 @@
+  table {
+    width: 80%;
+    /* border-collapse: collapse; */
+    margin: 20px auto;
+  }
+
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: skyblue;
+  }
+
+  ul {
+    list-style-type: square;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  .dropcourse {
+    display: block;
+    margin: 20px auto;
+    padding: 8px 16px;
+    background-color: lightseagreen;
+    color: white;
+    border: 1px solid black;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center
+  }
+
+  #sem {
+    font-weight: bold;
+    background-color: lightsalmon;
+    color: black;
+  }
+
+  .buttons {
+    display: flex;
+  }
+
+  #logout {
+    flex-grow: 1;
+    background-color: red;
+    /* margin:; */
+    margin-left: 10%;
+    padding: 8px 16px;
+    border: 1px solid black;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+  }
+
+  #register {
+    flex-grow: 1;
+    background-color: green;
+    /* margin: 20px 20px auto; */
+    margin-left: 20px;
+    padding: 8px 16px;
+    border: 1px solid black;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+  }
+
+  #running_btn {
+    flex-grow: 1;
+    background-color: purple;
+    /* margin: 20px 20px auto; */
+    margin-left: 20px;
+    padding: 8px 16px;
+    border: 1px solid black;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+  }
