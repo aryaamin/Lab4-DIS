@@ -6,6 +6,13 @@ class UserPass {
         this.id = id;
     }
 
+    async isStudent() {
+        const result = await client.query(`SELECT * FROM student WHERE id = $1`, [this.id]);
+
+        if (result) return true;
+        else return false;
+    }
+
     getId() {
         return id;
     }

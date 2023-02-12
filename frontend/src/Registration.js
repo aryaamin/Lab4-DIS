@@ -9,6 +9,10 @@ const Registration = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [selectedSection, setSelectedSection] = useState("");
 
+  const GotoHome = () => {
+    navigate("/home");
+  };
+
   const runningCourses = () => {
     fetch("http://localhost:3001/allrunning", {
       method: "POST",
@@ -149,6 +153,7 @@ const Registration = () => {
           </tbody>
         </table>
       )}
+      <button onClick={GotoHome} style = {{backgroundColor: "lightblue", color: "black", fontSize: 20, padding: 10, borderRadius: 5, marginLeft: 25}}>Home</button>
     </div>
   );
 };

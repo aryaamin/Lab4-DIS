@@ -69,6 +69,8 @@ app.post("/register_course", async (req, res) => {
     return res.json({ error: "Pre-Requisites not fulfilled" });
   } else if (result.status == 2) {
     return res.json({ error: "Slot Clash" });
+  } else if (result.status == -1) {
+    return res.json( {error : "Course already taken"});
   }
   return res.json({ msg: "Registered Successfully" });
 });
@@ -137,6 +139,9 @@ app.post("/instructor", async (req, res) => {
   if (req.session.userid) {
     const user = new Instinfo(req.body.inst_id);
     let instinfo = await user.getInstInfo();
+    console.log(instinfo);
+    if (!instinfo) {console.log ("Invalid instructor id"); return res.json({active: true, msg: "Wrong ID"});} // no instructor as such
+
     let instcurr = await user.getInstCurrCourses();
     let instpast = await user.getInstPastCourses();
     return res.json({

@@ -5,6 +5,7 @@ class Courseinfo {
         this.cid = cid;
     }
 
+    // returns info of all offerings of this course
     async getCurrCourses() {
 
         const result = await client.query(`with info1 as (select course_id, building, room_number from section),
@@ -19,6 +20,7 @@ class Courseinfo {
         return result.rows;
     }
 
+    // returns pre reqs of this course
     async getPrereqs() {
 
         const result = await client.query("select * from prereq where course_id = $1", [this.cid]);
@@ -26,6 +28,7 @@ class Courseinfo {
         return result.rows;
     }
 
+    // returns the slot of this course
     async getSlot(sec_id, sem, year) {
 
         const result = await client.query(`select time_slot_id from section 

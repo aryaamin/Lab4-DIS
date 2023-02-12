@@ -12,9 +12,7 @@ class Student {
 
   async getInfo() {
     const result = await client.query(
-      `SELECT id, name, dept_name, tot_cred 
-                                         FROM student 
-                                         WHERE id = $1`,
+      `SELECT id, name, dept_name, tot_cred FROM student WHERE id = $1`,
       [this.id]
     );
 
@@ -77,6 +75,23 @@ class Student {
     const sem = courses["sem"];
     const curr_courses = courses["current"];
     const past_courses = courses["past"];
+
+    // check if same course was already taken in some semester
+    if (curr_courses) {
+      for (const c of curr_courses) {
+        if (c["course_id"] == course_id) {
+          return { status : -1};
+        }
+      }
+    }
+
+    if (past_courses) {
+      for (const c of past_courses) {
+        if (c["course_id"] == course_id) {
+          return { status : -1};
+        }
+      }
+    }
 
     const course = new Course(course_id);
     const prereqs = await course.getPrereqs();
